@@ -1,0 +1,14 @@
+services:
+  dbgpt:
+    image: eosphorosai/dbgpt:latest
+    container_name: dbgpt
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - /d/dbgpt-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - LANGUAGE=zh
+      - WEB_PORT=5000
+      - LOG_LEVEL=INFO
